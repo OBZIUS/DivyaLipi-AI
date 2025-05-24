@@ -53,15 +53,34 @@ const HeroSection = () => {
         console.log('File uploaded:', file.name);
         setIsLoading(true);
         setShowTranslation(true);
-        
-        // Simulate processing
-        setTimeout(() => {
-          setTranslationData({
-            sanskrit: 'श्रीगणेशाय नमः। यत्र विद्या तत्र धर्मः।',
-            english: 'Salutations to Lord Ganesha. Where there is knowledge, there is righteousness.'
-          });
-          setIsLoading(false);
-        }, 3000);
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        fetch('http://127.0.0.1:8000/process', {
+          method: 'POST',
+          body: formData,
+        })
+            .then(async (res) => {
+              if (!res.ok) {
+                throw new Error('Failed to process image');
+              }
+              const data = await res.json();
+              setTranslationData({
+                sanskrit: data.sanskrit || '',
+                english: data.english || ''
+              });
+            })
+            .catch((err) => {
+              console.error('Error processing image:', err);
+              setTranslationData({
+                sanskrit: 'Error processing image',
+                english: ''
+              });
+            })
+            .finally(() => {
+              setIsLoading(false);
+            });
       }
     };
     input.click();

@@ -1,4 +1,5 @@
 from PIL import Image
+import torch
 from sanskrit_app.models.unet.restore import (
     load_restoration_model,
     preprocess_image,

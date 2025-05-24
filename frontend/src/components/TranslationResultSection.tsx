@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface TranslationResultSectionProps {
@@ -8,11 +7,11 @@ interface TranslationResultSectionProps {
   isLoading: boolean;
 }
 
-const TranslationResultSection: React.FC<TranslationResultSectionProps> = ({
+const TranslationResultSection: React.FC<TranslationResultSectionProps> = React.memo(({
   isVisible,
   sanskritText,
   englishTranslation,
-  isLoading
+  isLoading,
 }) => {
   if (!isVisible) return null;
 
@@ -31,10 +30,16 @@ const TranslationResultSection: React.FC<TranslationResultSectionProps> = ({
           <div className="absolute top-2 left-2 w-8 h-8 text-white font-devanagari text-2xl animate-rotate-slow opacity-70">
             ॐ
           </div>
-          <div className="absolute top-2 right-2 w-8 h-8 text-white font-devanagari text-2xl animate-rotate-slow opacity-70" style={{ animationDirection: 'reverse' }}>
+          <div
+            className="absolute top-2 right-2 w-8 h-8 text-white font-devanagari text-2xl animate-rotate-slow opacity-70"
+            style={{ animationDirection: 'reverse' }}
+          >
             ॐ
           </div>
-          <div className="absolute bottom-2 left-2 w-8 h-8 text-white font-devanagari text-2xl animate-rotate-slow opacity-70" style={{ animationDirection: 'reverse' }}>
+          <div
+            className="absolute bottom-2 left-2 w-8 h-8 text-white font-devanagari text-2xl animate-rotate-slow opacity-70"
+            style={{ animationDirection: 'reverse' }}
+          >
             ॐ
           </div>
           <div className="absolute bottom-2 right-2 w-8 h-8 text-white font-devanagari text-2xl animate-rotate-slow opacity-70">
@@ -42,7 +47,7 @@ const TranslationResultSection: React.FC<TranslationResultSectionProps> = ({
           </div>
 
           {/* Main scroll container */}
-          <div 
+          <div
             className="bg-gradient-to-br from-amber-50 to-yellow-100 p-8 md:p-12 rounded-lg shadow-2xl border-4 mystical-border relative overflow-hidden"
             style={{
               backgroundImage: `
@@ -93,14 +98,14 @@ const TranslationResultSection: React.FC<TranslationResultSectionProps> = ({
                     <h4 className="text-xl font-cinzel text-mystical-maroon text-center border-b border-mystical-gold/30 pb-2">
                       Sanskrit Text
                     </h4>
-                    <div 
+                    <div
                       className="p-6 bg-gradient-to-br from-amber-100 to-yellow-50 rounded-lg shadow-inner border border-mystical-gold/20 hover:shadow-lg transition-all duration-300"
                       style={{
                         textShadow: '0 0 10px rgba(230, 184, 0, 0.3)',
                       }}
                     >
                       <p className="font-devanagari text-lg md:text-xl text-amber-900 leading-relaxed text-center">
-                        {sanskritText || 'श्रीगणेशाय नमः। सरस्वत्यै नमो नमः।'}
+                        {sanskritText || 'Error Processing  Translation'}
                       </p>
                     </div>
                   </div>
@@ -112,7 +117,7 @@ const TranslationResultSection: React.FC<TranslationResultSectionProps> = ({
                     </h4>
                     <div className="p-6 bg-gradient-to-br from-stone-100 to-amber-50 rounded-lg shadow-inner border border-mystical-gold/20 hover:shadow-lg transition-all duration-300">
                       <p className="font-cormorant text-lg md:text-xl text-stone-800 leading-relaxed text-center">
-                        {englishTranslation || 'Salutations to Lord Ganesha. Salutations to Goddess Saraswati.'}
+                        {englishTranslation || 'Error Processing Translation'}
                       </p>
                     </div>
                   </div>
@@ -136,6 +141,6 @@ const TranslationResultSection: React.FC<TranslationResultSectionProps> = ({
       </div>
     </section>
   );
-};
+});
 
 export default TranslationResultSection;
