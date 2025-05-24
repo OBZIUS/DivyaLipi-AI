@@ -1,4 +1,4 @@
-from backend.app.models.yolo.yolo_ocr import yolo_model
+from sanskrit_app.models.yolo.yolo_ocr import yolo_model
 
 model = yolo_model()
 

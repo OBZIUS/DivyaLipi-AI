@@ -1,6 +1,6 @@
 from fastapi import APIRouter, UploadFile, File
 import shutil, os
-from backend.app.services.pipeline import process_image
+from sanskrit_app.services.pipeline import process_image
 
 router = APIRouter()
 

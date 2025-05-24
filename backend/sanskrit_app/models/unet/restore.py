@@ -11,6 +11,6 @@ class RestorationModel(torch.nn.Module):
 
 def load_restoration_model():
     model = RestorationModel()  # Replace with U-Net or ESRGAN model
-    # model.load_state_dict(torch.load("app/models/unet/weights.pth"))
+    # model.load_state_dict(torch.load("sanskrit_app/models/unet/weights.pth"))
     model.eval()
     return model

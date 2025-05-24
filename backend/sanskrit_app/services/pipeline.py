@@ -1,6 +1,6 @@
-from backend.app.services.detection import detect_text_boxes
-from backend.app.services.recognition import extract_text_from_boxes
-from backend.app.services.translation import translate_texts
+from sanskrit_app.services.detection import detect_text_boxes
+from sanskrit_app.services.recognition import extract_text_from_boxes
+from sanskrit_app.services.translation import translate_texts
 
 def process_image(image_path: str):
     boxes = detect_text_boxes(image_path)
