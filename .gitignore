@@ -1,3 +1,4 @@
 .venv/
 .idea/
 *.pt
+frontend/node_modules/
