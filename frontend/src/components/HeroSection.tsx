@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Upload } from 'lucide-react';
 import TranslationResultSection from './TranslationResultSection';
@@ -15,6 +14,7 @@ const HeroSection = () => {
     english: ''
   });
   const fullTitle = 'DivyaLipi AI';
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const timer1 = setTimeout(() => setTitleVisible(true), 500);
@@ -57,9 +57,13 @@ const HeroSection = () => {
         const formData = new FormData();
         formData.append('file', file);
 
-        fetch('http://127.0.0.1:8000/process', {
+        // Updated fetch call using environment variable
+        fetch(`${BACKEND_URL}/process`, {
           method: 'POST',
           body: formData,
+          headers: {
+            'Accept': 'application/json',
+          },
         })
             .then(async (res) => {
               if (!res.ok) {
