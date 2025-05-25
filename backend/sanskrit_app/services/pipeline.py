@@ -1,7 +1,11 @@
 import base64
+import os
 import requests
+from dotenv import load_dotenv
 
-GEMINI_API_KEY = "AIzaSyB5WGTUQmxKOifPRTYWAnL10m_N4uGJ4-4"  # Replace or use from .env
+load_dotenv()
+
+GEMINI_API_KEY = os.getenv("LANG_API")  # Replace or use from .env
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
 
 def encode_image_to_base64(path):
