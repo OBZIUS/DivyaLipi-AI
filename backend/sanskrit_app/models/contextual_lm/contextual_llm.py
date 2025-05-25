@@ -1,22 +1,66 @@
-import os
-from dotenv import load_dotenv
-from langchain_google_genai import ChatGoogleGenerativeAI
-load_dotenv()
+import base64
+import requests
 
-gemini_api_key = os.getenv("LANG_API")
+GEMINI_API_KEY = "AIzaSyB5WGTUQmxKOifPRTYWAnL10m_N4uGJ4-4"
+IMAGE_PATH = "12.jpg"  #Image PATH HERE
 
-llm = ChatGoogleGenerativeAI(
-    model='gemini-2.0-flash',
-    api_key=gemini_api_key,
-    temperature=0.4,
-    max_tokens=2048
-)
+API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
 
-def generate_text(prompt: str) -> str:
-    response = llm.complete(prompt)
-    return response.get("text", "")
+def encode_image_to_base64(path):
+    with open(path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode("utf-8")
 
+def send_to_gemini(base64_image):
+    headers = {
+        "Content-Type": "application/json"
+    }
+
+    prompt = (
+        "You are given an image containing text. Perform two steps:\n\n"
+        "1. Extract the exact text from the image. Output it *as-is*, with no heading or trailing text. Just the plain text as seen in the image.\n\n"
+        "2. Translate the extracted text line-by-line into English, maintaining the structure, while holding the meaning of the text. Prefix this section with exactly:\n\n"
+        "\"Translated:\"\n\n"
+        "Your final output must look like this:\n"
+        "```\n"
+        "<original text>\n\n"
+        "Translated:\n"
+        "<line 1 translation>\n"
+        "<line 2 translation>\n"
+        "...\n"
+        "```\n\n"
+        "Do not include any other text, explanation, or formatting outside the format above."
+    )
+
+    payload = {
+        "contents": [
+            {
+                "parts": [
+                    {"text": prompt},
+                    {
+                        "inline_data": {
+                            "mime_type": "image/jpeg",
+                            "data": base64_image
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+
+    response = requests.post(API_URL, headers=headers, json=payload)
+    if response.ok:
+        return response.json()
+    else:
+        print("Error:", response.status_code)
+        print(response.text)
+        return None
+
+# Main
 if __name__ == "__main__":
-    prompt = "Translate Sanskrit to English: नमस्ते"
-    output = generate_text(prompt)
-    print("Gemini output:", output)
+    encoded_image = encode_image_to_base64(IMAGE_PATH)
+    result = send_to_gemini(encoded_image)
+
+    if result:
+        response_text = result["candidates"][0]["content"]["parts"][0]["text"]
+        print(response_text)
+#OUTPUT ABOVE

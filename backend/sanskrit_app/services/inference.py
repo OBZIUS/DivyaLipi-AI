@@ -34,21 +34,7 @@ def analyze_image_with_prompt(image_path: str, prompt: str) -> str:
         raise RuntimeError(f"Gemini Vision model call failed: {e}")
 
 def restore_sanskrit_text(raw_text: str) -> str:
-    prompt = f"""You are a Sanskrit text restoration expert.
-You will receive OCR-scanned text that is:
-- Mostly **Sanskrit written in Devanagari** script, but often broken, degraded, or misspelled.
-- Mixed with **random English letters**, **digits**, and **symbols** — which should be **completely ignored**.
-
-### Your task:
-
-1. From the **Devanagari characters**, construct a **meaningful, grammatically correct Sanskrit sentence**.
-   - Be intelligent — infer the closest likely intent. and almost equal to the length of the text that is displayed.
-   - Do not add extra flourishes; be concise and natural.
-2. **Output only**:
-   - Line 1: The corrected Sanskrit sentence (in Devanagari).
-   - Line 2: `Translation: "..."` (natural English translation)
-3. Do not infer from scriptures like BhagavadGita Unless you are 90% sure that the verse is From Bhagavad Gita
-Do not explain your reasoning. Just give the output.
+    prompt = f"""How Can I provide an Image to you?
 
 Input:
 {raw_text}
