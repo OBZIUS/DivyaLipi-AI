@@ -5,10 +5,12 @@ from fastapi.responses import JSONResponse
 import logging
 
 app = FastAPI()
+
 origins = [
-    "https://divya-lipi-ai.vercel.app/",  
-    "http://localhost:8888" 
+    "https://divya-lipi-ai.vercel.app",  
+    "http://localhost:8888"
 ]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
