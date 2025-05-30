@@ -2,11 +2,8 @@ import base64
 import requests
 import dotenv 
 import os
-
-# Load environment variables from .env file
 dotenv.load_dotenv()
 
-# Get API key from environment variables
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 if not GEMINI_API_KEY:

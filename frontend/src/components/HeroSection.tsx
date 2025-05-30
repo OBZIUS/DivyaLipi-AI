@@ -9,6 +9,7 @@ const HeroSection = () => {
   const [typingText, setTypingText] = useState('');
   const [showTranslation, setShowTranslation] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false); // New state for processing
   const [translationData, setTranslationData] = useState({
     sanskrit: '',
     english: ''
@@ -52,6 +53,7 @@ const HeroSection = () => {
       if (file) {
         console.log('File uploaded:', file.name);
         setIsLoading(true);
+        setIsProcessing(true); // Hide the upload button
         setShowTranslation(true);
 
         const formData = new FormData();
@@ -84,6 +86,7 @@ const HeroSection = () => {
             })
             .finally(() => {
               setIsLoading(false);
+              setIsProcessing(false); // Show the upload button again
             });
       }
     };
@@ -218,7 +221,7 @@ const HeroSection = () => {
           </div>
 
           {/* Upload Button */}
-          {showUpload && (
+          {showUpload && !isProcessing && (
             <div className="animate-fade-in-up">
               <button
                 onClick={handleUploadClick}
