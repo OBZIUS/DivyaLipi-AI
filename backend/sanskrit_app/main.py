@@ -23,6 +23,10 @@ app.add_middleware(
 
 app.include_router(router)
 
+@app.get("/check")
+def check():
+    return {"status": "ok"}
+
 @app.get("/")
 async def root():
     return {"message": "Sanskrit OCR backend is running."}
