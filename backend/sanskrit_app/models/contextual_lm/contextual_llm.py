@@ -1,7 +1,17 @@
 import base64
 import requests
+import dotenv 
+import os
 
-GEMINI_API_KEY = "AIzaSyB5WGTUQmxKOifPRTYWAnL10m_N4uGJ4-4"
+# Load environment variables from .env file
+dotenv.load_dotenv()
+
+# Get API key from environment variables
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+
+if not GEMINI_API_KEY:
+    raise ValueError("GEMINI_API_KEY not found in environment variables")
+
 IMAGE_PATH = "12.jpg"  #Image PATH HERE
 
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
