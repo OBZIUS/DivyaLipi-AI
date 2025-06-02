@@ -6,7 +6,7 @@
 
 ### Note on Commit Structure
 
-Due to computational and hardware limitations, particularly GPU availability, all model training, experimentation, and pipeline integration were executed on a single local machine. As a result, all Git operations—including commits and pushes—have been consistently performed from the same device.
+Due to computational and hardware limitations, particularly GPU availability, all model training, experimentation, and pipeline integration were executed on a single local machine. As a result, all Git operations—including commits and pushes have been consistently performed from the same device.
 
 This approach ensured:
 - Environment consistency across development cycles
