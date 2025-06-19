@@ -7,7 +7,7 @@
 ## 📽️ Demo
 
 Check out the live demo and results here:  
-🔗 [LinkedIn Demo Post](https://www.linkedin.com/posts/aryan-kahate-657429313_%F0%9D%9F%90%F0%9D%9F%8E-%F0%9D%90%A1%F0%9D%90%A8%F0%9D%90%AE%F0%9D%90%AB%F0%9D%90%AC-%F0%9D%90%A8%F0%9D%90%9F-%F0%9D%90%AB%F0%9D%90%9E%F0%9D%90%A5%F0%9D%90%9E%F0%9D%90%A7%F0%9D%90%AD%F0%9D%90%A5%F0%9D%90%9E%F0%9D%90%AC%F0%9D%90%AC-activity-7333020837505036288-Y8Hu?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAE-egmMBSdy0Z8AmGTBbnQU-nWFW4wt3hs0)
+🔗 [LinkedIn Demo Post](https://www.linkedin.com/posts/aryankahate_%F0%9D%9F%90%F0%9D%9F%8E-%F0%9D%90%A1%F0%9D%90%A8%F0%9D%90%AE%F0%9D%90%AB%F0%9D%90%AC-%F0%9D%90%A8%F0%9D%90%9F-%F0%9D%90%AB%F0%9D%90%9E%F0%9D%90%A5%F0%9D%90%9E%F0%9D%90%A7%F0%9D%90%AD%F0%9D%90%A5%F0%9D%90%9E%F0%9D%90%AC%F0%9D%90%AC-activity-7333020837505036288-zPdT?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE-egmMBSdy0Z8AmGTBbnQU-nWFW4wt3hs0)
 
 ---
 
